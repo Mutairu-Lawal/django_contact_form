@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'assets/images/favicon-32x32.png' %}"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <div class="attribution" style="display: none">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <!-- work here  -->
+    <div class="container">
+      <h1>Contact Us</h1>
+      <form>
+        {% csrf_token %}
+        <div class="form-container">
+          <!-- first name -->
+          <div class="input-container">
+            <h2 class="label">first name</h2>
+            <input type="text" name="firstName" id="firstName" />
+            <p class="error-message">This field is required</p>
+          </div>
+
+          <!-- last name -->
+          <div class="input-container">
+            <h2 class="label">last name</h2>
+            <input type="text" name="lastName" id="lastName" />
+            <p class="error-message">This field is required</p>
+          </div>
+
+          <!-- email -->
+          <div class="input-container">
+            <h2 class="label" for="email">email address</h2>
+            <input type="text" name="email" id="email" />
+            <p class="error-message">Please enter a valid email address</p>
+          </div>
+
+          <!-- query type -->
+          <div class="input-container">
+            <h2 class="label">query type</h2>
+            <div class="radio-container">
+              <div class="input-box">
+                <input
+                  type="radio"
+                  id="general"
+                  name="queryType"
+                  value="general"
+                />
+                <label for="general">general Enquiry</label>
+              </div>
+              <div class="input-box">
+                <input
+                  type="radio"
+                  id="support"
+                  name="queryType"
+                  value="support"
+                />
+                <label for="support">support request</label>
+              </div>
+            </div>
+            <p class="error-message">Please select a query type</p>
+          </div>
+
+          <!-- message -->
+          <div class="input-container">
+            <h2 class="label" for="messageBox">messages</h2>
+            <textarea
+              id="messageBox"
+              name="messageBox"
+              rows="5"
+              cols="50"
+            ></textarea>
+            <p class="error-message">This field is required</p>
+          </div>
+
+          <!-- consent -->
+          <div class="input-container">
+            <div class="flex">
+              <input type="checkbox" id="consent" name="consent" />
+              <label class="label" for="consent">
+                i consent to being contacted by the team
+              </label>
+            </div>
+            <p class="error-message">
+              To submit this form, please consent to being contacted
+            </p>
+          </div>
+        </div>
+        <!-- submit btn -->
+        <button type="submit">submit</button>
+      </form>
+    </div>
+
+    <!-- alert modal -->
+    <div class="alert-modal">
+      <div class="icon-container">
+        <div class="icon">
+          <img
+            src="{% static '/assets/images/icon-success-check.svg' %}"
+            alt="success check mark"
+          />
+        </div>
+        <h2>Message Sent!</h2>
+      </div>
+      <p>Thanks for completing the form. we'll be in touch soon!</p>
+    </div>
+    <!-- end of work here -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
